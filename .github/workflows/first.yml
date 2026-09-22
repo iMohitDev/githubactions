@@ -1,0 +1,17 @@
+name: First Workflow 
+#This will be displayed in Actions Tab otherwise if we dont provide the name then it will show the relative path of this yaml file
+
+on: push
+
+jobs:
+    first_job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Welcome Message # optional field
+              run: echo "This is my first workflow!!!"
+            
+            - name: List Files
+              run: ls -latrh
+
+            - name: Read file
+              run: cat README.md
