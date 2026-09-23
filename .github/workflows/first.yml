@@ -8,7 +8,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Welcome Message # optional field
-              run: echo "This is my first workflow!!!"
+              run: echo "this is my first workflow!!!"
             
             - name: List Files
               run: ls -latrh
