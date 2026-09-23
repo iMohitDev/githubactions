@@ -1,7 +1,7 @@
 name: First Workflow 
 #This will be displayed in Actions Tab otherwise if we dont provide the name then it will show the relative path of this yaml file
 
-on: push
+on: fork
 
 jobs:
     first_job:
