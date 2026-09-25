@@ -27,7 +27,7 @@ Your files  →  staging area  →  local commits  →  shared remote  →  CI/C
 - **Tag:** a named marker, usually a version/release such as `v2.4.0`.
 - **Detached HEAD:** checked out at a specific commit/tag rather than a branch; ideal for builds and investigation.
 
-## Choose the integration method
+### Choose the integration method
 - **Merge:** combines histories; often best for protected/shared branches.
 - **Rebase:** rewrites your private commits onto a newer base; gives a tidy linear feature branch.
 - **Cherry-pick:** copies one specific commit onto another branch; ideal for a hotfix backport.
