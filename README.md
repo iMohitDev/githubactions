@@ -37,7 +37,7 @@ Your files  →  staging area  →  local commits  →  shared remote  →  CI/C
 # Level 1 — Start safely
 ## 1.1 Set up Git once on your computer
 
-
+```bash
 git --version                                              # Confirm Git is installed and see which version you are using.
 git config --global user.name "Your Name"                  # Set the author name shown on new commits.
 git config --global user.email "you@company.example"       # Set the author email shown on new commits.
@@ -50,7 +50,7 @@ git config --global fetch.prune true                       # Remove stale remote
 git config --global rerere.enabled true                    # Remember conflict resolutions that you have already solved.
 git config --global merge.conflictstyle zdiff3             # Show clearer conflict context on modern Git versions.
 git config --show-origin --list                            # Show effective settings and where each setting came from.
-
+```
 
 > Tip: use `--local` instead of `--global` if one repository needs a different work email: `git config --local user.email "work@company.example"`.
 ## 1.2 Get a repository
