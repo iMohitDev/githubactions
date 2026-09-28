@@ -12,10 +12,16 @@ jobs:
               #https://github.com/marketplace/actions/checkout
 
             - name: Welcome Message # optional field
-              run: echo "this is my first workflow!!!"
+              run: | 
+                echo "this is my first workflow!!!"
+                ls -latrh
+                cat README.md
             
-            - name: List Files
-              run: ls -latrh
+            - name: Generate ASCII artwork
+              run: cowsay -f dragon "Run for cover, I am a DRAGON....RAWR" >> dragon.txt 
+            
+            # - name: List Files
+            #   run: ls -latrh
 
-            - name: Read file
-              run: cat README.md
+            # - name: Read file
+            #   run: cat README.md
