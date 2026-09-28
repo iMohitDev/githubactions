@@ -7,6 +7,10 @@ jobs:
     first_job:
         runs-on: ubuntu-latest
         steps:
+            - name: Checkout the Repo
+              uses: actions/checkout@v7
+              #https://github.com/marketplace/actions/checkout
+
             - name: Welcome Message # optional field
               run: echo "this is my first workflow!!!"
             
