@@ -8,6 +8,9 @@ jobs:
   ascii_job:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout the Repo
+        uses: actions/checkout@v7
+        
       - name: Checkout Repo files
         run: ls -latrh
 
