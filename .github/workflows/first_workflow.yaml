@@ -4,22 +4,41 @@ name: First Workflow
 on: push
 
 jobs:
-    first_job:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout the Repo
-              uses: actions/checkout@v7
-              #https://github.com/marketplace/actions/checkout
+  first_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the Repo
+        uses: actions/checkout@v7
+        #https://github.com/marketplace/actions/checkout
 
-            - name: Welcome Message # optional field
-              run: | 
+      - name: Welcome Message # optional field
+        run: | 
                 echo "this is my first workflow!!!"
                 ls -latrh
                 cat README.md
             
-            - name: Generate ASCII artwork
-              run: cowsay -f dragon "Run for cover, I am a DRAGON....RAWR" >> dragon.txt 
-            
+      # - name: Generate ASCII artwork
+      #   run: cowsay -f dragon "Run for cover, I am a DRAGON....RAWR" >> dragon.txt
+
+  ascii_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install cowsay library
+        run: sudo apt-get install cowsay -y
+      
+      - name: Execute cowsay cmd
+        run: cowsay -f dragon "Run for cover, I am a DRAGON....RAWR" >> dragon.txt
+
+      - name: Test File exists
+        run: grep -i "dragon" dragon.txt
+      
+      - name: Read File
+        run: cat dragon.txt
+      
+      - name: Checkout Repo files
+        run: ls -latrh
+
+
             # - name: List Files
             #   run: ls -latrh
 
