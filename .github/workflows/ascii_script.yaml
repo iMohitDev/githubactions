@@ -1,0 +1,19 @@
+name: ASCII Artwork
+#This will be displayed in Actions Tab otherwise if we dont provide the name then it will show the relative path of this yaml file
+
+on: push
+
+jobs:
+
+  ascii_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo files
+        run: ls -latrh
+
+      - name: Run ASCII Script
+        run: |
+            chmod +x ascii.sh
+            ./ascii.sh
+      
+
