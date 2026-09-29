@@ -1,5 +1,4 @@
 name: ASCII Artwork
-#This will be displayed in Actions Tab otherwise if we dont provide the name then it will show the relative path of this yaml file
 
 on: push
 
@@ -10,7 +9,7 @@ jobs:
     steps:
       - name: Checkout the Repo
         uses: actions/checkout@v7
-        
+
       - name: Checkout Repo files
         run: ls -latrh
 

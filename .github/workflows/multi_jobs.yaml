@@ -1,0 +1,50 @@
+name: Multi Jobs Artifacts
+
+on: push
+
+jobs:
+  build_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install cowsay library
+        run: sudo apt-get install cowsay -y
+      
+      - name: Execute cowsay cmd
+        run: cowsay -f dragon "Run for cover, I am a DRAGON....RAWR" >> dragon.txt
+
+      - name: Upload Dragon Text File
+        uses: actions/upload-artifact@v7
+        with:
+            name: dragon-text-artifact
+            path: dragon.txt
+
+
+  test_job:
+    needs: build_job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Dragon Text File
+        uses: actions/download-artifact@v8
+        with:
+            name: dragon-text-artifact
+            path: dragon.txt
+
+      - name: Test File exists
+        run: grep -i "dragon" dragon.txt
+    
+
+  deploy_job:
+    needs: [build_job,test_job]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Dragon Text File
+        uses: actions/download-artifact@v8
+        with:
+            name: dragon-text-artifact
+            path: dragon.txt
+
+      - name: Deploying
+        run: echo "Deploying..."
+            
+      - name: Read File
+        run: cat dragon.txt
