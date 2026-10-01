@@ -8,9 +8,9 @@ jobs:
     deploy:
         strategy:
             fail-fast: false
-            max-parallel: 3 # max number of jobs allowed to run in parallel
+            max-parallel: 6 # max number of jobs allowed to run in parallel
             matrix:
-                os_name: [ubuntu-latest, ubuntu-20.04, windows-latest]
+                os_name: [ubuntu-latest, windows-latest]
                 images_name: [hello-world, alpine]
 
                 exclude:
