@@ -7,9 +7,19 @@ on:
 jobs:
     deploy:
         strategy:
+            fail-fast: false
+            max-parallel: 3 # max number of jobs allowed to run in parallel
             matrix:
                 os_name: [ubuntu-latest, ubuntu-20.04, windows-latest]
                 images_name: [hello-world, alpine]
+
+                exclude:
+                    - images_name: alpine
+                      os_name: windows-latest
+                include:
+                    - images_name: amd64/alpine
+                      os_name: ubuntu-latest
+
         runs-on: ${{ matrix.os_name }}
         steps:
             - name: Docker Details
