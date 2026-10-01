@@ -25,5 +25,5 @@ jobs:
             - name: Docker Details
               run: docker info
 
-            - name: Run Image on ${{ matrix.os_name }}
+            - name: Run Images on ${{ matrix.os_name }}
               run: docker run ${{ matrix.images_name }}
